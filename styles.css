@@ -87,3 +87,35 @@ button{
 
     cursor:pointer;
 }
+.hero{
+    padding:20px;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+h2{
+    font-weight:400;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#0f6d70;
+    margin-bottom:20px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
+}
+
+.tarjeta{
+    transition:0.3s;
+}
+
+.tarjeta:hover{
+    transform:translateY(-8px);
+}
