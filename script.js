@@ -2,39 +2,71 @@
 
 function calcular() {
 
-    const n1 = parseFloat(document.getElementById("nota1").value) || 0;
-    const p1 = parseFloat(document.getElementById("pond1").value) || 0;
+    const n1 = parseFloat(document.getElementById("nota1")?.value) || 0;
+    const p1 = parseFloat(document.getElementById("pond1")?.value) || 0;
 
-    const n2 = parseFloat(document.getElementById("nota2").value) || 0;
-    const p2 = parseFloat(document.getElementById("pond2").value) || 0;
+    const n2 = parseFloat(document.getElementById("nota2")?.value) || 0;
+    const p2 = parseFloat(document.getElementById("pond2")?.value) || 0;
 
-    const n3 = parseFloat(document.getElementById("nota3").value) || 0;
-    const p3 = parseFloat(document.getElementById("pond3").value) || 0;
+    const n3 = parseFloat(document.getElementById("nota3")?.value) || 0;
+    const p3 = parseFloat(document.getElementById("pond3")?.value) || 0;
 
     const resultado =
         (n1 * p1 + n2 * p2 + n3 * p3) / 100;
 
-    document.getElementById("resultado").innerHTML =
-        "Nota Final: " + resultado.toFixed(1);
+    const resultadoHTML =
+        document.getElementById("resultado");
+
+    if(resultadoHTML){
+        resultadoHTML.innerHTML =
+            "Nota Final: " + resultado.toFixed(1);
+    }
 }
 
 
-// AVANCE CURRICULAR
 
-document.addEventListener("DOMContentLoaded", () => {
+// TODO LO DEMÁS
 
-    const ramos =
+document.addEventListener("DOMContentLoaded", function(){
+
+    // CHECKBOX VERDE
+
+    const checkboxes =
     document.querySelectorAll(".ramo");
+
+    checkboxes.forEach(function(caja){
+
+        caja.addEventListener("change", function(){
+
+            const item =
+            caja.closest(".ramo-item");
+
+            if(!item) return;
+
+            if(caja.checked){
+
+                item.classList.add("aprobado");
+
+            }else{
+
+                item.classList.remove("aprobado");
+            }
+
+        });
+
+    });
+
+
+
+    // AVANCE CURRICULAR
 
     function actualizarAvance(){
 
         const total =
-        ramos.length;
+        document.querySelectorAll(".ramo").length;
 
         const aprobados =
-        document.querySelectorAll(
-            ".ramo:checked"
-        ).length;
+        document.querySelectorAll(".ramo:checked").length;
 
         const porcentaje =
         total > 0
@@ -56,49 +88,23 @@ document.addEventListener("DOMContentLoaded", () => {
             texto.innerText =
             porcentaje + "%";
         }
+
     }
 
-    ramos.forEach(ramo => {
-        ramo.addEventListener(
+    checkboxes.forEach(function(caja){
+
+        caja.addEventListener(
             "change",
             actualizarAvance
         );
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-
-    const checkboxes =
-    document.querySelectorAll(".ramo");
-
-    checkboxes.forEach(caja => {
-
-        caja.addEventListener("change", () => {
-
-            const item =
-            caja.closest(".ramo-item");
-
-            if(caja.checked){
-
-                item.classList.add(
-                    "aprobado"
-                );
-
-            }else{
-
-                item.classList.remove(
-                    "aprobado"
-                );
-            }
-
-        });
 
     });
-
-});
 
     actualizarAvance();
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+
+
+    // PRERREQUISITO PILOTO
 
     const biologia =
     document.getElementById("biologia");
@@ -127,11 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    biologia.addEventListener(
-        "change",
-        revisarPrerrequisitos
-    );
+    if(biologia){
 
-    revisarPrerrequisitos();
+        biologia.addEventListener(
+            "change",
+            revisarPrerrequisitos
+        );
+
+        revisarPrerrequisitos();
+    }
 
 });
