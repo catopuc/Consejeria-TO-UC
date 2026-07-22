@@ -97,3 +97,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     actualizarAvance();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const biologia =
+    document.getElementById("biologia");
+
+    const fisio =
+    document.getElementById("fisio-item");
+
+    function revisarPrerrequisitos(){
+
+        if(!biologia || !fisio){
+            return;
+        }
+
+        if(biologia.checked){
+
+            fisio.classList.remove(
+                "bloqueado"
+            );
+
+        }else{
+
+            fisio.classList.add(
+                "bloqueado"
+            );
+        }
+
+    }
+
+    biologia.addEventListener(
+        "change",
+        revisarPrerrequisitos
+    );
+
+    revisarPrerrequisitos();
+
+});
