@@ -1,3 +1,5 @@
+// CALCULADORA
+
 function calcular() {
 
     const n1 = parseFloat(document.getElementById("nota1").value) || 0;
@@ -15,3 +17,53 @@ function calcular() {
     document.getElementById("resultado").innerHTML =
         "Nota Final: " + resultado.toFixed(1);
 }
+
+
+// AVANCE CURRICULAR
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const ramos =
+    document.querySelectorAll(".ramo");
+
+    function actualizarAvance(){
+
+        const total =
+        ramos.length;
+
+        const aprobados =
+        document.querySelectorAll(
+            ".ramo:checked"
+        ).length;
+
+        const porcentaje =
+        total > 0
+        ? Math.round((aprobados / total) * 100)
+        : 0;
+
+        const barra =
+        document.getElementById("progreso");
+
+        const texto =
+        document.getElementById("porcentaje");
+
+        if(barra){
+            barra.style.width =
+            porcentaje + "%";
+        }
+
+        if(texto){
+            texto.innerText =
+            porcentaje + "%";
+        }
+    }
+
+    ramos.forEach(ramo => {
+        ramo.addEventListener(
+            "change",
+            actualizarAvance
+        );
+    });
+
+    actualizarAvance();
+});
