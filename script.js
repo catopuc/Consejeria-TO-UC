@@ -64,6 +64,36 @@ document.addEventListener("DOMContentLoaded", () => {
             actualizarAvance
         );
     });
+    document.addEventListener("DOMContentLoaded", () => {
+
+    const checkboxes =
+    document.querySelectorAll(".ramo");
+
+    checkboxes.forEach(caja => {
+
+        caja.addEventListener("change", () => {
+
+            const item =
+            caja.closest(".ramo-item");
+
+            if(caja.checked){
+
+                item.classList.add(
+                    "aprobado"
+                );
+
+            }else{
+
+                item.classList.remove(
+                    "aprobado"
+                );
+            }
+
+        });
+
+    });
+
+});
 
     actualizarAvance();
 });
