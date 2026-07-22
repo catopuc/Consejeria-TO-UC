@@ -155,3 +155,30 @@ nav a{
 nav a:hover{
     color:#18b7b0;
 }
+.malla-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.semestre-card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.semestre-card h4{
+    color:#18b7b0;
+    margin-bottom:15px;
+}
+
+.semestre-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.semestre-card li{
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
