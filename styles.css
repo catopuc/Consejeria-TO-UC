@@ -88,24 +88,25 @@ button{
     cursor:pointer;
 }
 .hero{
-    padding:20px;
-}
 
-h1{
-    font-size:3rem;
-    margin-bottom:10px;
-}
+    background:
+    linear-gradient(
+        135deg,
+        #18b7b0 0%,
+        #15929f 60%,
+        #eab0be 100%
+    );
 
-h2{
-    font-weight:400;
-    margin-bottom:15px;
-}
+    padding:100px 30px;
 
-h3{
-    color:#0f6d70;
-    margin-bottom:20px;
-}
+    text-align:center;
 
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
 footer{
     text-align:center;
     padding:40px;
@@ -163,11 +164,26 @@ nav a:hover{
 
 .semestre-card{
     background:white;
-    border-radius:20px;
-    padding:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+    border-top:6px solid #18b7b0;
+
+    transition:0.3s;
 }
 
+.semestre-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+}
 .semestre-card h4{
     color:#18b7b0;
     margin-bottom:15px;
